@@ -30,10 +30,10 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'jcf/vim-latex'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-latex/vim-latex'
 Plugin 'Valloric/YouCompleteMe'
 " Plugin 'davidhalter/jedi-vim'
 
@@ -103,15 +103,17 @@ let g:Tex_DefaultTargetFormat='pdf'
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/'
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
+" Vim Airline
+let g:airline_theme='solarized_flood'
+let g:airline#extensions#tabline#enabled = 1
+
 let delimitMate_expand_cr = 1
 
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_detect_spell=1
-
-" Airline Theme
-let g:airline_theme = 'solarized_flood'
-
+" LaTex settings
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
+let g:Tex_MultipleCompileFormats='pdf'
+let g:Tex_FoldedEnvironments='verbatim,comment,gather,thebibliography,keywords,abstract,titlepage'
 
 "------------------------------------------------------------
 " Must have options {{{1
@@ -156,6 +158,7 @@ set hlsearch
 
 " Colorscheme
 let g:solarized_termcolors=256
+let g:solarized_contrast_dark='hard'
 set t_Co=256
 set background=dark
 colorscheme solarized
@@ -258,7 +261,7 @@ nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Escape is now jk
-inoremap jk <esc>
+inoremap jk <Esc>
 
 " Yank to end of line
 nnoremap Y y$
@@ -275,8 +278,7 @@ nnoremap - $
 " Quick save
 nnoremap <S-s> :w<CR>
 
-" Yank to end of line
-nnoremap Y y$
+
 
 
 "------------------------------------------------------------
