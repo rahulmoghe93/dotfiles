@@ -26,15 +26,19 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 
 " Plugins
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
-Plugin 'jcf/vim-latex'
 Plugin 'Raimondi/delimitMate'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-latex/vim-latex'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Plugin 'drewtempelmeyer/palenight.vim'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plugin 'davidhalter/jedi-vim'
 
 " START https://github.com/google/vim-codefmt
@@ -98,20 +102,23 @@ let g:Tex_DefaultTargetFormat='pdf'
 " while YCM is running
 " let g:jedi#completions_enabled = 0
 
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-let g:ycm_confirm_extra_conf = 1
+" let g:ycm_server_python_interpreter = '/usr/bin/python3'
+" let g:ycm_confirm_extra_conf = 1
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/'
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+" Powerline settings
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline
 
 let delimitMate_expand_cr = 1
 
-" Airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_detect_spell=1
-
-" Airline Theme
-let g:airline_theme = 'solarized_flood'
-
+" LaTex settings
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
+let g:Tex_MultipleCompileFormats='pdf'
+let g:Tex_FoldedEnvironments='verbatim,comment,gather,thebibliography,keywords,abstract,titlepage'
 
 "------------------------------------------------------------
 " Must have options {{{1
@@ -155,10 +162,9 @@ set hlsearch
 " set nomodeline
 
 " Colorscheme
-let g:solarized_termcolors=256
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme palenight
 
 
 "------------------------------------------------------------
@@ -258,7 +264,7 @@ nnoremap <C-L> :nohl<CR><C-L>
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 
 " Escape is now jk
-inoremap jk <esc>
+inoremap jk <Esc>
 
 " Yank to end of line
 nnoremap Y y$
@@ -275,8 +281,7 @@ nnoremap - $
 " Quick save
 nnoremap <S-s> :w<CR>
 
-" Yank to end of line
-nnoremap Y y$
+
 
 
 "------------------------------------------------------------
