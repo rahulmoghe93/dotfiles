@@ -34,7 +34,7 @@ Plugin 'jcf/vim-latex'
 Plugin 'Raimondi/delimitMate'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-" Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " Plugin 'davidhalter/jedi-vim'
 
 " START https://github.com/google/vim-codefmt
@@ -98,10 +98,10 @@ let g:Tex_DefaultTargetFormat='pdf'
 " while YCM is running
 " let g:jedi#completions_enabled = 0
 
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
-let g:ycm_confirm_extra_conf = 1
+" let g:ycm_server_python_interpreter = '/usr/bin/python3'
+" let g:ycm_confirm_extra_conf = 1
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/'
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 let delimitMate_expand_cr = 1
 
