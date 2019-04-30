@@ -195,5 +195,5 @@ export PATH=$PATH:/home/rahulmoghe93/.local/bin
 
 # added by Anaconda2 4.1.1 installer
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-export EDITOR='subl'export NAO_HOME=~/nao/trunk
-source /home/rahulmoghe93/nao/trunk/install/bashrc_addendum
+export EDITOR='subl'export NAO_HOME=~/Documents/nao/trunk
+source /home/rahulmoghe93/Documents/nao/trunk/install/bashrc_addendum
