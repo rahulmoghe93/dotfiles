@@ -26,15 +26,18 @@ call vundle#begin()
 Bundle 'gmarik/vundle'
 
 " Plugins
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'Syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+" Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-latex/vim-latex'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'kien/ctrlp.vim'
+Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plugin 'davidhalter/jedi-vim'
 
 " START https://github.com/google/vim-codefmt
@@ -103,9 +106,10 @@ let g:Tex_DefaultTargetFormat='pdf'
 " let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/'
 " let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
-" Vim Airline
-let g:airline_theme='solarized_flood'
-let g:airline#extensions#tabline#enabled = 1
+" Powerline settings
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline
 
 let delimitMate_expand_cr = 1
 
