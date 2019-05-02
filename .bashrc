@@ -163,6 +163,8 @@ function parse_git_dirty {
 	fi
 }
 
+#=================================
+
 PS1="\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[33m\]\W\[\e[m\]> "
 
 if [ -f ~/.bash_aliases ]; then

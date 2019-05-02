@@ -14,6 +14,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias sl='ls'
 alias lol='sudo rmmod i2c_hid; sudo modprobe i2c_hid'
 alias foxit='/opt/foxitsoftware/foxitreader/FoxitReader'
 alias gits='/home/rahulmoghe93/Downloads/git-summary/git-summary'
