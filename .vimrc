@@ -37,6 +37,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'vim-latex/vim-latex'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
+Plugin 'drewtempelmeyer/palenight.vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 " Plugin 'davidhalter/jedi-vim'
 
@@ -161,11 +162,9 @@ set hlsearch
 " set nomodeline
 
 " Colorscheme
-let g:solarized_termcolors=256
-let g:solarized_contrast_dark='hard'
 set t_Co=256
 set background=dark
-colorscheme solarized
+colorscheme palenight
 
 
 "------------------------------------------------------------
