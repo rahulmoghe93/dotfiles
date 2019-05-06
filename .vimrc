@@ -96,9 +96,6 @@ let g:syntastic_python_python_exec='python3'
 let g:NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$']
 
-" vim latex auto compile
-let g:Tex_DefaultTargetFormat='pdf'
-
 " while YCM is running
 " let g:jedi#completions_enabled = 0
 
@@ -115,6 +112,7 @@ set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusl
 let delimitMate_expand_cr = 1
 
 " LaTex settings
+let g:Tex_GotoError=0
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
 let g:Tex_MultipleCompileFormats='pdf'
