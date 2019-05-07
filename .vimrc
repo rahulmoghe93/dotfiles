@@ -32,14 +32,11 @@ Plugin 'Syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
-" Plugin 'vim-airline/vim-airline'
-" Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-latex/vim-latex'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'drewtempelmeyer/palenight.vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-" Plugin 'davidhalter/jedi-vim'
 
 " START https://github.com/google/vim-codefmt
 " Add maktaba and codefmt to the runtimepath.
