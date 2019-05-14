@@ -11,8 +11,8 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias cdd='cd ~/Documents'
-alias cdr='cd /home/rahulmoghe93/Documents/research'
+alias cdd='cd /home/$USER/Documents'
+alias cdr='cd /home/$USER/Documents/research'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
