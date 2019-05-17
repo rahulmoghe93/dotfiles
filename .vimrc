@@ -36,6 +36,7 @@ Plugin 'vim-latex/vim-latex'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'drewtempelmeyer/palenight.vim'
+Plugin 'morhetz/gruvbox'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " START https://github.com/google/vim-codefmt
@@ -114,6 +115,7 @@ let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
 let g:Tex_MultipleCompileFormats='pdf'
 let g:Tex_FoldedEnvironments='verbatim,comment,gather,thebibliography,keywords,abstract,titlepage'
+
 
 "------------------------------------------------------------
 " Must have options {{{1
