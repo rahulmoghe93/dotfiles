@@ -116,8 +116,6 @@ let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
 let g:Tex_MultipleCompileFormats='pdf'
 let g:Tex_FoldedEnvironments='verbatim,comment,gather,thebibliography,keywords,abstract,titlepage'
 
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark='medium'
 
 "------------------------------------------------------------
 " Must have options {{{1
@@ -163,7 +161,7 @@ set hlsearch
 " Colorscheme
 set t_Co=256
 set background=dark
-colorscheme gruvbox
+colorscheme palenight
 
 
 "------------------------------------------------------------
