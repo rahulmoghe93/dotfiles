@@ -65,10 +65,6 @@ fi
 
 # PS1="\[\e[33m\]\`parse_git_branch\`\[\e[m\]\[\e[33m\]\W\[\e[m\]> "
 
-# if [ -f ~/.bash_aliases ]; then
-#     . ~/.bash_aliases
-# fi
-
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -80,11 +76,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# for file in ~/.{config_dotfiles,path,load,colors,exports,icons,aliases,bash_completion,functions,extra,dotfilecheck}; do
-#   [ -r "$file" ] && [ -f "$file" ] && source "$file"
-# done
-# unset file
-
 
 # Bind Tab to show options and then menu complete
 bind "TAB:menu-complete"
@@ -93,11 +84,10 @@ bind "set menu-complete-display-prefix on"
 
 shopt -s no_empty_cmd_completion;
 
+# exports
 export GUROBI_HOME="/opt/gurobi811/linux64"
 export PATH="${PATH}:${GUROBI_HOME}/bin"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 export PATH=$PATH:/home/rahulmoghe93/.local/bin
-
-# added by Anaconda2 4.1.1 installer
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-# export EDITOR='subl'export NAO_HOME=~/Documents/nao/trunk
+export PYTHONDONTWRITEBYTECODE=1
