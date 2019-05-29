@@ -103,8 +103,11 @@ function parse_git_dirty {
 	fi
 }
 
-# Commit and push everything
+# Commit and push everything with one message as argument
 gitdone() { git add -A; git commit -S -v -m "$1"; git push; }
+
+# Commit a certain file with its own message
+gitcom() { git add $1; git commit -m "$2"; }
 
 # -------------------------------------------------------------------
 # Call from a local repo to open the repository on github/bitbucket in browser
