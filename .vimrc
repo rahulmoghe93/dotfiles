@@ -278,7 +278,9 @@ nnoremap - $
 " Quick save
 nnoremap <S-s> :w<CR>
 
-
+" Clipboard yank and paste
+noremap <Leader>y "+y
+noremap <Leader>p "+p
 
 
 "------------------------------------------------------------
