@@ -104,7 +104,7 @@ function parse_git_dirty {
 }
 
 # Commit and push everything with one message as argument
-gitdone() { git add -A; git commit -S -v -m "$1"; git push; }
+gitdone() { git add -A; git commit -v -m "$1"; git push; }
 
 # Commit a certain file with its own message
 gitcom() { git add $1; git commit -m "$2"; }
