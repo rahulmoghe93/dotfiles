@@ -161,7 +161,7 @@ set hlsearch
 " Colorscheme
 set t_Co=256
 set background=dark
-colorscheme palenight
+colorscheme vibrantink
 
 
 "------------------------------------------------------------
