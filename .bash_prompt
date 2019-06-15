@@ -126,13 +126,13 @@ export PROMPT_COMMAND=__prompt_command
 __prompt_command() {
    code=$?
    [[ $code != 0 ]] && echo -e "$RED✗ ${code}${RESET_COLOR}"
-   PS1="\[${cyan}\]\`prompt_git\`$(ps1_hostname)\W\[${red}\]:\[${reset}\] "
+   PS1="\[${bold}${cyan}\]\`prompt_git\`$(ps1_hostname)\W\[${red}\]:\[${reset}\] "
 }
 
 ps1_hostname() {
    host=$(hostname)
    user=$(whoami)
    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	 echo "\[${purple}\]$user@$host\[${cyan}\] "
+	 echo "\[${bold}${purple}\]$user@$host\[${cyan}\] "
    fi
 }
