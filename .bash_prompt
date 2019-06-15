@@ -126,22 +126,13 @@ export PROMPT_COMMAND=__prompt_command
 __prompt_command() {
    code=$?
    [[ $code != 0 ]] && echo -e "$RED✗ ${code}${RESET_COLOR}"
-   PS1="\[\e[1;36m\]\`prompt_git\`$(ps1_hostname)\W\[\e[1;31m\]:\[\e[0m\] "
+   PS1="\[${cyan}\]\`prompt_git\`$(ps1_hostname)\W\[${red}\]:\[${reset}\] "
 }
 
 ps1_hostname() {
-   # host=$(hostname)
-   # user=$(whoami)
-   # if [[ "$host" != "rahulmoghe93" || "$user" != "rmm93" ]]; then
-   #   echo "\[\e[1;30m\]$user\[\e[0;37m\]@\[\e[1;36m\]$host "
-   # fi
+   host=$(hostname)
+   user=$(whoami)
    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	 SESSION_TYPE=remote/ssh
-	 echo "\[\e[1;30m\]$user\[\e[0;37m\]@\[\e[1;36m\]$host "
-	 # many other tests omitted
-   else
-	 case $(ps -o comm= -p $PPID) in
-	   sshd|*/sshd) SESSION_TYPE=remote/ssh;;
-	 esac
+	 echo "\[${purple}\]$user@$host\[${cyan}\] "
    fi
 }
