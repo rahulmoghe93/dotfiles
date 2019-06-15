@@ -91,3 +91,5 @@ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:${GUROBI_HOME}/lib"
 export PATH=$PATH:/home/rahulmoghe93/.local/bin
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PYTHONDONTWRITEBYTECODE=1
+export VISUAL=vim
+export EDITOR="$VISUAL"
