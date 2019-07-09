@@ -1,7 +1,8 @@
 # Funcitons
 
 # Get to the top of a git tree
-cdp () {
+cdp ()
+{
 
   TEMP_PWD=`pwd`
   while ! [ -d .git ]; do
@@ -12,7 +13,8 @@ cdp () {
 }
 
 # get current branch in git repo
-function parse_git_branch() {
+function parse_git_branch()
+{
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
 	if [ ! "${BRANCH}" == "" ]
 	then
@@ -47,7 +49,8 @@ netinfo ()
 }
 
 # extract - extract any kind of compressed file
-extract () {
+extract ()
+{
    if [ -f $1 ] ; then
        case $1 in
            *.tar.bz2)   tar xvjf $1    ;;
@@ -69,7 +72,8 @@ extract () {
 }
 
 # get current status of git repo
-function parse_git_dirty {
+function parse_git_dirty
+{
 	status=`git status 2>&1 | tee`
 	dirty=`echo -n "${status}" 2> /dev/null | grep "modified:" &> /dev/null; echo "$?"`
 	untracked=`echo -n "${status}" 2> /dev/null | grep "Untracked files" &> /dev/null; echo "$?"`
@@ -139,3 +143,57 @@ repo()
     o $giturl
   fi
 }
+
+# Get colors in manual pages
+man()
+{
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
+}
+
+# ips: get the local IP's
+ips()
+{
+  ifconfig | grep "inet " | awk '{ print $2 }' | cut -d ":" -f 2
+}
+
+# os-info: show some info about your system
+os-info()
+{
+  lsb_release -a
+  uname -a
+
+  if [ -z /etc/lsb-release ]; then
+    cat /etc/lsb-release;
+  fi;
+
+  if [ -z /etc/issue ]; then
+    cat /etc/issue;
+  fi;
+
+  if [ -z /proc/version ]; then
+    cat /proc/version;
+  fi;
+}
+
+numfiles() { 
+    N="$(ls $1 | wc -l)"; 
+    echo "$N files in $1";
+}
+
+# battery_life : Echo the percentage of battery life remaining
+battery()
+{
+  local life=$(acpi -b | cut -d "," -f 2)
+  # NOTE: the trailing % is stripped
+  echo ${life%\%}
+}
+
+
