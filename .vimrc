@@ -161,7 +161,7 @@ set hlsearch
 " Colorscheme
 set t_Co=256
 set background=dark
-colorscheme vibrantink
+colorscheme palenight
 
 
 "------------------------------------------------------------
@@ -182,6 +182,10 @@ set backspace=indent,eol,start
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
+
+" Open new split panes to right and bottom, which feels more natural
+set splitbelow
+set splitright
 
 " Stop certain movements from always going to the first character of a line.
 " While this behaviour deviates from that of Vi, it does what most users
