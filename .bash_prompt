@@ -66,6 +66,8 @@ if tput setaf 1 &> /dev/null; then
 	bold=$(tput bold);
 	reset=$(tput sgr0);
 	# Solarized colors, taken from http://git.io/solarized-colors.
+	lgreen=$(tput setaf 6);
+	lpurple=$(tput setaf 5);
 	black=$(tput setaf 0);
 	blue=$(tput setaf 33);
 	cyan=$(tput setaf 51);
@@ -125,14 +127,14 @@ export PROMPT_COMMAND=__prompt_command
 
 __prompt_command() {
    code=$?
-   [[ $code != 0 ]] && echo -e "$RED✗ ${code}${RESET_COLOR}"
-   PS1="\[${cyan}\]\`prompt_git\`$(ps1_hostname)\W\[${red}\]:\[${reset}\] "
+   [[ $code != 0 ]] && echo -e "${red}✗ ${code}${reset}"
+   PS1="\[${lgreen}\]\`prompt_git\`$(ps1_hostname)\W:\[${reset}\] "
 }
 
 ps1_hostname() {
    host=$(hostname)
    user=$(whoami)
    if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	 echo "\[${bold}${purple}\]$user@$host\[${cyan}\] "
+	 echo "\[${bold}${lpurple}\]$user@$host "
    fi
 }

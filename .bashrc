@@ -76,11 +76,20 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# ToDo.txt completion
+complete -F _todo t
 
 # Bind Tab to show options and then menu complete
 bind "TAB:menu-complete"
 bind "set show-all-if-ambiguous on"
 bind "set menu-complete-display-prefix on"
+# fzf-git bindings
+bind '"\er": redraw-current-line'
+bind '"\C-g\C-f": "$(gf)\e\C-e\er"'
+bind '"\C-g\C-b": "$(gb)\e\C-e\er"'
+bind '"\C-g\C-t": "$(gt)\e\C-e\er"'
+bind '"\C-g\C-h": "$(gh)\e\C-e\er"'
+bind '"\C-g\C-r": "$(gr)\e\C-e\er"'
 
 shopt -s no_empty_cmd_completion;
 
@@ -93,3 +102,7 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PYTHONDONTWRITEBYTECODE=1
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export TODOTXT_DEFAULT_ACTION=ls
+export FZF_DEFAULT_OPTS="--height 40% --layout=reverse --border"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
