@@ -35,6 +35,7 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'vim-latex/vim-latex'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'morhetz/gruvbox'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
@@ -93,6 +94,31 @@ let g:syntastic_python_python_exec='python3'
 "
 let g:NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$']
+
+" NERDCommenter settings
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
 " while YCM is running
 " let g:jedi#completions_enabled = 0
