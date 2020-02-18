@@ -125,7 +125,7 @@ export PROMPT_COMMAND=__prompt_command
 
 __prompt_command() {
    code=$?
-   [[ $code != 0 ]] && echo -e "$RED✗ ${code}${RESET_COLOR}"
+   [[ $code != 0 ]] && echo -e "${red}✗ ${code}${reset}"
    PS1="\[${cyan}\]\`prompt_git\`$(ps1_hostname)\W\[${red}\]:\[${reset}\] "
 }
 

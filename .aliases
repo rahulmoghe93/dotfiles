@@ -10,29 +10,37 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias cdd='cd /home/$USER/Documents'
-alias cdr='cd /home/$USER/Documents/research'
+# ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias sl='ls'
+
+# cd aliases
+alias cdd='cd /home/$USER/Documents'
+alias cdr='cd /home/$USER/Documents/projects'
+alias cdf='cd /home/$USER/Documents/fam'
 alias lol='sudo rmmod i2c_hid; sudo modprobe i2c_hid'
-alias foxit='/opt/foxitsoftware/foxitreader/FoxitReader'
-alias hs='history | grep'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+
+# git
 alias gits='/usr/local/bin/git-summary'
 alias gcm='git commit -m'
 alias gitd='git-delete'
 alias gs='git status'
 alias gp='git pull'
 alias gd='git diff'
+
+# misc
 alias mv='mv -iv'
 alias zth='/usr/bin/zathura'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
 alias o='gnome-open'
+alias t='~/Downloads/todo.txt/todo.sh -d ~/Dowloads/todo.txt/todo.cfg'
+alias hs='history | grep'
+alias foxit='/opt/foxitsoftware/foxitreader/FoxitReader'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

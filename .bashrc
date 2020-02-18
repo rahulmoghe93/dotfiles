@@ -76,6 +76,8 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# ToDo.txt completion
+complete -F _todo t
 
 # Bind Tab to show options and then menu complete
 bind "TAB:menu-complete"
@@ -93,3 +95,4 @@ export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export PYTHONDONTWRITEBYTECODE=1
 export VISUAL=vim
 export EDITOR="$VISUAL"
+export TODOTXT_DEFAULT_ACTION=ls

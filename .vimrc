@@ -32,12 +32,12 @@ Plugin 'Syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
-Plugin 'vim-latex/vim-latex'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'morhetz/gruvbox'
+Plugin 'kiteco/vim-plugin'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
 " START https://github.com/google/vim-codefmt
@@ -66,6 +66,10 @@ augroup END
 
 filetype plugin indent on
 
+" Kite settings
+set statusline=%<%f\ %h%m%r%{kite#statusline()}%=%-14.(%l,%c%V%)\ %P
+set laststatus=2
+let g:kite_tab_complete=1
 
 " Enable syntax highlighting
 syntax on
@@ -86,47 +90,33 @@ let g:syntastic_python_checkers = ['flake8']
 " let g:syntastic_python_flake8_args='--ignore=E501,W191,E126,W0312'
 let g:syntastic_python_flake8_config_file='~/.config/flake8'
 let g:syntastic_python_python_exec='python3'
-
 "let g:syntastic_quiet_messages = { "type": "style" }
 
 " Autostart nerd tree:
 "autocmd VimEnter * NERDTree
-"
 let g:NERDTreeShowHidden=1
 let NERDTreeIgnore=['\.pyc$']
-
 " NERDCommenter settings
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
-
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
-
 " Align line-wise comment delimiters flush left instead of following code indentation
 let g:NERDDefaultAlign = 'left'
-
 " Set a language to use its alternate delimiters by default
 let g:NERDAltDelims_java = 1
-
 " Add your own custom formats or override the defaults
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
-
 " Allow commenting and inverting empty lines (useful when commenting a region)
 let g:NERDCommentEmptyLines = 1
-
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
-" while YCM is running
-" let g:jedi#completions_enabled = 0
-
-" let g:ycm_server_python_interpreter = '/usr/bin/python3'
-" let g:ycm_confirm_extra_conf = 1
-" let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/'
-" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" vim-latex settings
+let g:tex_flavor='latex'
+set iskeyword+=:
 
 " Powerline settings
 set laststatus=2 " Always display the statusline in all windows
@@ -134,14 +124,6 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline
 
 let delimitMate_expand_cr = 1
-
-" LaTex settings
-let g:Tex_GotoError=0
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_CompileRule_pdf='pdflatex -interaction=nonstopmode $*'
-let g:Tex_MultipleCompileFormats='pdf'
-let g:Tex_FoldedEnvironments='verbatim,comment,gather,thebibliography,keywords,abstract,titlepage'
-
 
 "------------------------------------------------------------
 " Must have options {{{1
@@ -272,6 +254,16 @@ autocmd Filetype make setlocal noexpandtab
 " four characters wide.
 set shiftwidth=4
 set tabstop=4
+
+" PEP8 indentation
+au BufNewFile,BufRead *.py |
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
 
 
 "------------------------------------------------------------

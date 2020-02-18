@@ -183,7 +183,8 @@ os-info()
   fi;
 }
 
-numfiles() { 
+numfiles()
+{ 
     N="$(ls $1 | wc -l)"; 
     echo "$N files in $1";
 }
@@ -196,4 +197,12 @@ battery()
   echo ${life%\%}
 }
 
-
+# ff : find and grep file name in a location
+ff()
+{
+	if [[ "$#" -eq 1 ]]; then
+		find | grep "$1"
+	else
+		find $1 | grep "$2"
+	fi
+}
