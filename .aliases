@@ -11,6 +11,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # ls aliases
+alias demangle="c++filt -n"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -31,6 +32,7 @@ alias gits='/usr/local/bin/git-summary'
 alias gcm='git commit -m'
 alias gitd='git-delete'
 alias gs='git status'
+alias gck='git checkout'
 alias gp='git pull'
 alias gd='git diff'
 
@@ -40,7 +42,8 @@ alias z='/home/$USER/.local/bin/zathura'
 alias o='gnome-open'
 alias t='~/Downloads/todo.txt/todo.sh -d ~/Dowloads/todo.txt/todo.cfg'
 alias hs='history | grep'
-alias foxit='/opt/foxitsoftware/foxitreader/FoxitReader'
+alias mark="pwd > ~/.sd"
+alias port='cd $(cat ~/.sd)'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert

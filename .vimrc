@@ -29,44 +29,23 @@ Bundle 'gmarik/vundle'
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'Syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Raimondi/delimitMate'
-Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'SirVer/ultisnips'
+Plugin 'junegunn/rainbow_parentheses.vim'
+" Plugin 'SirVer/ultisnips'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'kiteco/vim-plugin'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'lervag/vimtex'
 Plugin 'KeitaNakamura/tex-conceal.vim'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-" START https://github.com/google/vim-codefmt
-" Add maktaba and codefmt to the runtimepath.
-" (The latter must be installed before it can be used.)
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-" Also add Glaive, which is used to configure codefmt's maktaba flags. See
-" `:help :Glaive` for usage.
-Plugin 'google/vim-glaive'
-" ...
 call vundle#end()
-" the glaive#Install() should go after the "call vundle#end()"
-call glaive#Install()
-" Optional: Enable codefmt's default mappings on the <Leader>= prefix.
-Glaive codefmt plugin[mappings]
-
-augroup autoformat_settings
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
-  autocmd FileType html,css,json AutoFormatBuffer js-beautify
-  autocmd FileType python AutoFormatBuffer yapf
-  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
-augroup END
-" END CODEFMT COPY PASTE
 
 filetype plugin indent on
 
@@ -80,21 +59,6 @@ syntax on
 
 let g:slimv_swank_cmd ='! xterm -e sbcl --load ~/utils/start-swank.lisp &' "
 let g:slimv_leader=','
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_loc_list_height = 3
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['flake8']
-" let g:syntastic_python_flake8_args='--ignore=E501,W191,E126,W0312'
-let g:syntastic_python_flake8_config_file='~/.config/flake8'
-let g:syntastic_python_python_exec='python3'
-"let g:syntastic_quiet_messages = { "type": "style" }
 
 " Autostart nerd tree:
 "autocmd VimEnter * NERDTree
@@ -123,6 +87,10 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 let g:UltiSnipsEditSplit="vertical"
+
+" fzf vim settings
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 
 " Tex settings
 let g:tex_flavor='latex'
@@ -259,16 +227,30 @@ set pastetoggle=<F11>
 
 " Indentation settings for using 4 spaces instead of tabs.
 " Do not change 'tabstop' from its default value of 8 with this setup.
-" set shiftwidth=4
-" set softtabstop=4
-" set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=0
+set expandtab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2
 autocmd Filetype make setlocal noexpandtab
 
 " Indentation settings for using hard tabs for indent. Display tabs as
 " four characters wide.
-set shiftwidth=4
-set tabstop=4
+function! UseTabs()
+  set tabstop=4     " Size of a hard tabstop (ts).
+  set shiftwidth=4  " Size of an indentation (sw).
+  set noexpandtab   " Always uses tabs instead of space characters (noet).
+  set autoindent    " Copy indent from current line when starting a new line (ai).
+endfunction
+
+function! UseSpaces()
+  set tabstop=2     " Size of a hard tabstop (ts).
+  set shiftwidth=2  " Size of an indentation (sw).
+  set expandtab     " Always uses spaces instead of tab characters (et).
+  set softtabstop=0 " Number of spaces a <Tab> counts for. When 0, featuer is off (sts).
+  set autoindent    " Copy indent from current line when starting a new line.
+  set smarttab      " Inserts blanks on a <Tab> key (as per sw, ts and sts).
+endfunction
 
 " PEP8 indentation
 au BufNewFile, BufRead *.py |
@@ -287,7 +269,13 @@ au BufNewFile,BufRead *.tikz set filetype=tex
 " Mappings {{{1
 "
 " Useful mappings
+map ; :
+noremap ;; ;
 let maplocalleader='`'
+
+nmap <C-P> :FZF<CR>
+
+nmap <C-F> :Ag<CR>
 
 " Map Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
 " which is the default
